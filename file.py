@@ -1,25 +1,22 @@
 import streamlit as st
 from streamlit_chat import message
 import requests
+import os
 import openai
 import toml
-import os
-currentpath = os.getcwd()
-print(currentpath)
 
 with open('secrets.toml', 'r') as f:
     config = toml.load(f)
 
 openai.api_type = "azure"
-openai.api_key = config['fb64bf7c663d41efb288da7573a9e3f6']
-openai.api_base = "https://young-openai.openai.azure.com/"
+openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_base = "https://mtcopenaisvc.openai.azure.com/"
 openai.api_version = "2022-12-01"
 
+st.set_page_config(page_title="Custom MTC ChatGPT", page_icon="💬")
 
-st.set_page_config(page_title="Custom ChatGPT", page_icon="💬")
-
-st.markdown("# Custom ChatGPT")
-st.sidebar.header("Custom ChatGPT")
+st.markdown("# Custom MTC ChatGPT")
+st.sidebar.header("Custom MTC ChatGPT")
 
 #generating 2 empty lists to store past and generated value in the conversation
 
@@ -36,7 +33,7 @@ if user_input:
           engine="test1",
           prompt=f"{st.session_state.past}\n{user_input}",
           temperature=0,
-          max_tokens=1041,
+          max_tokens=4001,
           top_p=1,
           frequency_penalty=0,
           presence_penalty=0,
