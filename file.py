@@ -10,7 +10,7 @@ with open('secrets.toml', 'r') as f:
 
 openai.api_type = "azure"
 openai.api_key = os.environ["OPENAI_API_KEY"]
-openai.api_base = "https://mtcopenaisvc.openai.azure.com/"
+openai.api_base = "https://bloodntear.openai.azure.com//"
 openai.api_version = "2022-12-01"
 
 st.set_page_config(page_title="Custom MTC ChatGPT", page_icon="💬")
