@@ -13,8 +13,8 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 openai.api_base = "https://bloodntear.openai.azure.com/"
 openai.api_version = "2022-12-01"
 
-st.set_page_config(page_title="쬐그만한 ChatGPT", page_icon="💬")
-st.markdown("# 쬐그만한 ChatGPT")
+st.set_page_config(page_title="Azure OpenAI ChatGPT", page_icon="💬")
+st.markdown("# Azure OpenAI ChatGPT")
 
 #generating 2 empty lists to store past and generated value in the conversation
 
@@ -23,18 +23,18 @@ if 'generated' not in st.session_state:
 
 if 'past' not in st.session_state:
     st.session_state['past'] = []
-user_input = st.text_input("You: ","안녕하세요", key="input")
+user_input = st.text_input("You: ","hello", key="input")
 
 if user_input:
     output = openai.Completion.create(
-          engine="bloodntear",
+          engine="bloodntear1",
           prompt=f"{st.session_state.past}\n{user_input}",
-          temperature=0.6,
-          max_tokens=3000,
-          top_p=0.9,
+          temperature=0,
+          max_tokens=1041,
+          top_p=1,
           frequency_penalty=0,
           presence_penalty=0,
-          best_of=1,
+	  best_of=1,
           stop=None)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output["choices"][0]["text"].strip())
