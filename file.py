@@ -31,9 +31,9 @@ if user_input:
           prompt=f"{st.session_state.past}\n{user_input}",
           temperature=0.6,
           max_tokens=3000,
-          top_p=1,
-          frequency_penalty=1,
-          presence_penalty=1,
+          top_p=0.9,
+          frequency_penalty=0,
+          presence_penalty=0,
           best_of=1,
           stop=None)
     st.session_state.past.append(user_input)
