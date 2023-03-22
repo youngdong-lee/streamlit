@@ -34,7 +34,7 @@ if user_input:
           top_p=1,
           frequency_penalty=0,
           presence_penalty=0,
-	  best_of=1,
+          best_of=1,
           stop=None)
     st.session_state.past.append(user_input)
     st.session_state.generated.append(output["choices"][0]["text"].strip())
