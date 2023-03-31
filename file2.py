@@ -34,7 +34,7 @@ if st.button("Send"):
     with st.spinner("Generating response..."):
         st.session_state["messages"] += [{"role": "user", "content": prompt}]
         response = openai.ChatCompletion.create(
-            engine="bloodntear2", messages=st.session_state["messages"]
+            engine="chat", messages=st.session_state["messages"]
         )
         message_response = response["choices"][0]["message"]["content"]
         st.session_state["messages"] += [
