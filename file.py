@@ -16,7 +16,7 @@ openai.api_version = "2023-03-15-preview"
 st.set_page_config(page_title="Azure OpenAI ChatGPT", page_icon="💬")
 st.markdown("# Azure OpenAI ChatGPT")
 
-#generating 2 empty lists to store past and generated value in the conversation
+#generating 2 empty lists to store past and generated value in the conversation!
 
 if 'generated' not in st.session_state:
     st.session_state['generated'] = []
